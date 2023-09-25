@@ -1,18 +1,26 @@
-Welcome to the Klipper project!
+# Klipper C137
 
-[![Klipper](docs/img/klipper-logo-small.png)](https://www.klipper3d.org/)
+My home universe fork of Klipper. As of now the goal is to poke around and see whats up.
 
-https://www.klipper3d.org/
+# Local Install and virtual MCU
 
-Klipper is a 3d-Printer firmware. It combines the power of a general
-purpose computer with one or more micro-controllers. See the
-[features document](https://www.klipper3d.org/Features.html) for more
-information on why you should use Klipper.
+## Build SimulAVR
+```
+sudo apt install g++ make cmake swig rst2pdf help2man texinfo
+git clone git://git.savannah.nongnu.org/simulavr.git
+cd simulavr
+make python
+make build  
+```
 
-To begin using Klipper start by
-[installing](https://www.klipper3d.org/Installation.html) it.
+## Configure and Build Klipper
+```
+cd /path/to/klipper
+make menuconfig
+```
 
-Klipper is Free Software. See the [license](COPYING) or read the
-[documentation](https://www.klipper3d.org/Overview.html). We depend on
-the generous support from our
-[sponsors](https://www.klipper3d.org/Sponsors.html).
+* AVR atmega644p
+* Extra low level options
+* SIMULAVR software emulation support. Then one can compile
+* `make`
+* Run SimularAVR with: `PYTHONPATH=./simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf`
