@@ -2,7 +2,9 @@
 
 My home universe fork of Klipper. As of now the goal is to poke around and see whats up.
 
-# Local Install and virtual MCU
+# Local Install w/ virtual 
+
+* [debugging.md](./docs/Debugging.md)
 
 ## Build SimulAVR
 ```
@@ -13,7 +15,7 @@ make python
 make build  
 ```
 
-## Configure and Build Klipper
+## Configure, Build, and run Klipper
 ```
 cd /path/to/klipper
 make menuconfig
@@ -31,3 +33,21 @@ make menuconfig
         * Sym link @  /etc/systemd/system/multi-user.target.wants/klipper.service
     * Exe Actually Running: `/home/tanner/klippy-env/bin/python /home/tanner/Desktop/repos/Klipper_C137/klippy/klippy.py /home/tanner/printer.cfg -l /tmp/klippy.log`
 * Kill the klippy process, we will invoke our own : `sudo systemctl stop klipper.service`
+    * `~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i test.gcode -v`
+    * This just starts klipper and executes a single gcode file
+
+
+# Interfacing with Klipper
+
+## Web Hooks Console
+
+## [klipper-repl](https://github.com/unjordy/klipper-repl)
+
+## moonraker
+
+## mainsail
+
+# Questions
+
+* how come installing it makes a seperate repo n shit
+* how come it starts two processes?
